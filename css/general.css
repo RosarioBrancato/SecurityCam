@@ -1,0 +1,14 @@
+body {
+	background-color: #191970;
+	color: white;
+}
+
+h1 {
+	color: white;
+	font-weight: bold;
+	font-size: 48px;
+}
+
+input {
+	color: black;
+}
