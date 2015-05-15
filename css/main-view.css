@@ -1,14 +1,7 @@
-#stream-main {
-    width: 100%;
-    height: 100%;
-}
-
-.black {
-	width: 100%;
-	height: 500px;
-	background-color: black;
-}
-
 .logo {
-	width: 75px;
+	width: 60px;
+}
+
+.nav-option {
+	font-size: 18px;
 }

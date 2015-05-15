@@ -29,27 +29,24 @@
 		</header>
 		
 		<div class="row">
-			<div class="col-lg-2">
-				<div class="black"></div>
+			<div class="col-sm-2">
+				<!--<div class="black"></div>-->
+				<ul class="nav nav-pills nav-stacked">
+					<li role="presentation" class="nav-option active"><a href="#">Stream</a></li>
+					<li role="presentation" class="nav-option"><a href="#">Videos</a></li>
+				</ul>
 			</div>
 			
-			<div class="col-lg-10">
+			<div class="col-sm-10">
 				<!-- MAIN STREAM -->
 				<div class="row">
-					<div class="col-lg-12">
-						<embed type="application/x-vlc-plugin"
-							id="stream-main"
-							class="vlc-player" 
-							name="stream-main"
-							windowless="false"
-							pluginspage="http://www.videolan.org"
-							target="https://www.youtube.com/watch?v=ElfuVuaRjdI" />
-						<!-- target="http://10.142.126.119:8554/" width="1024" height="600" -->
+					<div id="div-stream-main" class="col-sm-12">
+						<!-- inserted with js -->
 					</div>
 				</div>
 				<!-- ADDITIONAL STREAMS -->
 				<div class="row">
-					<div class="col-lg-4">
+					<div class="col-sm-4">
 						<h3>Start additional stream</h3>
 						<p>IP-Adress <input class="form-control" type="text" /></p>
 						<p>Port <input class="form-control" type="text" value="8553" /></p>
@@ -59,30 +56,28 @@
 				
 			</div>
 		</div>
+		<footer>
+			<p class="text-right">Made by Rosario Brancato</p>
+		</footer>
 	</div>
 	 
+	<script src="js/constants.js"></script>
+	<script src="js/stream-main.js"></script>
 	<script>
 		$(document).ready(function() {
-			//Set settings
-			var vlc = $('#stream-main').get(0);
-			vlc.audio.toggleMute();
-	
-			$('#stream-main-close').click(function() {
-				var vlc = $('#stream-main').get(0);
-				vlc.playlist.pause();
-			});
+			//Insert vlc player
+			var width = getStreamMainWidth();
+			var height = getStreamMainHeight();
+			loadStreamMainPlugin(TARGET, width, height);
 			
-			$('#stream-main-pause').click(function() {
-				var vlc = $('#stream-main').get(0);
-				vlc.playlist.pause();
-			});
-			
-			$('#stream-main-play').click(function() {
-				var vlc = $('#stream-main').get(0);
-				//state 4 means paused
-				if(vlc.input.state == 4) {
-					vlc.playlist.togglePause();
-				}
+			//Reload vlc player if window has been resized
+			$(window).resize(function() {
+				clearTimeout($.data(this, 'resizeTimer'));
+				$.data(this, 'resizeTimer', setTimeout(function() {
+					var width = getStreamMainWidth();
+					var height = getStreamMainHeight();
+					loadStreamMainPlugin(TARGET, width, height);
+				}, 200));
 			});
 		
 		});
