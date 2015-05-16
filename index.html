@@ -48,11 +48,12 @@
 				<div id="div-streams" class="row">
 					<div id="div-stream-form" class="col-lg-4">
 						<h3>Start additional stream</h3>
-						<p>IP-Adress* <input id="txt-stream-ip" class="form-control" type="text" /></p>
-						<p>Port* <input id="txt-stream-port" class="form-control" type="text" value="8553" /></p>
-						<p>Name <input id="txt-stream-name" class="form-control" type="text" /><p>
+						<p>IP adress* <input id="txt-stream-ip" class="form-control" type="text" maxlength="15" /></p>
+						<p>Port* <input id="txt-stream-port" class="form-control" type="text" value="8553" maxlength="5" /></p>
+						<p>Name <input id="txt-stream-name" class="form-control" type="text" maxlength="30" /><p>
 						<button id="btn-stream-start" class="btn btn-info">Start!</button>
 					</div>
+					<input type="hidden" id="next_id" value="0" />
 				</div>
 				
 			</div>
@@ -60,6 +61,7 @@
 		<footer>
 			<p class="text-right">Made by Rosario Brancato</p>
 		</footer>
+		
 	</div>
 	 
 	<script src="js/constants.js"></script>
@@ -83,23 +85,29 @@
 			});
 		
 			$('#btn-stream-start').click(function() {
-				var width = $('#div-stream-form').width();
-				var height = width * 0.45;
+				var width = getStreamAdditionalWidth();
+				var height = getStreamAdditionalHeight();
 				
 				var name = $('#txt-stream-name').val();
-				var ip = $('#txt-stream-ip').val();
+				var id = $('#next_id').val();
+				$('#next_id').val(parseInt(id) + 1);
+				
+				/*var ip = $('#txt-stream-ip').val();
 				var port = $('#txt-stream-port').val();
 				var target = 'http://' + ip;
 				if(port.length > 0)  {
 					target += ':' + port;
-				}
+				}*/
 				
-				addStreamAdditional(target, width, height, name);
+				//Testing
+				var target = $('#txt-stream-ip').val();
+				
+				addStreamAdditional(id, name, target, width, height);
 				
 				//clear fields
-				$('#txt-stream-name').val('');
 				$('#txt-stream-ip').val('');
 				$('#txt-stream-port').val('8553');
+				$('#txt-stream-name').val('');
 			});
 		
 		});
