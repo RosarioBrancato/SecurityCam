@@ -45,12 +45,13 @@
 					</div>
 				</div>
 				<!-- ADDITIONAL STREAMS -->
-				<div class="row">
-					<div class="col-sm-4">
+				<div id="div-streams" class="row">
+					<div id="div-stream-form" class="col-lg-4">
 						<h3>Start additional stream</h3>
-						<p>IP-Adress <input class="form-control" type="text" /></p>
-						<p>Port <input class="form-control" type="text" value="8553" /></p>
-						<button class="btn btn-info">Start!</button>
+						<p>IP-Adress* <input id="txt-stream-ip" class="form-control" type="text" /></p>
+						<p>Port* <input id="txt-stream-port" class="form-control" type="text" value="8553" /></p>
+						<p>Name <input id="txt-stream-name" class="form-control" type="text" /><p>
+						<button id="btn-stream-start" class="btn btn-info">Start!</button>
 					</div>
 				</div>
 				
@@ -63,6 +64,7 @@
 	 
 	<script src="js/constants.js"></script>
 	<script src="js/stream-main.js"></script>
+	<script src="js/stream-additional.js"></script>
 	<script>
 		$(document).ready(function() {
 			//Insert vlc player
@@ -78,6 +80,26 @@
 					var height = getStreamMainHeight();
 					loadStreamMainPlugin(TARGET, width, height);
 				}, 200));
+			});
+		
+			$('#btn-stream-start').click(function() {
+				var width = $('#div-stream-form').width();
+				var height = width * 0.45;
+				
+				var name = $('#txt-stream-name').val();
+				var ip = $('#txt-stream-ip').val();
+				var port = $('#txt-stream-port').val();
+				var target = 'http://' + ip;
+				if(port.length > 0)  {
+					target += ':' + port;
+				}
+				
+				addStreamAdditional(target, width, height, name);
+				
+				//clear fields
+				$('#txt-stream-name').val('');
+				$('#txt-stream-ip').val('');
+				$('#txt-stream-port').val('8553');
 			});
 		
 		});
