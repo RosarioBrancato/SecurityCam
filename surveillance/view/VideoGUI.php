@@ -40,7 +40,7 @@
 			<!-- SIDEBAR -->
 			<div class="col-sm-2">
 				<ul class="nav nav-pills nav-stacked">
-					<li role="presentation" class="nav-option"><a href="index.html">Live Streams</a></li>
+					<li role="presentation" class="nav-option"><a href="index.php">Live Streams</a></li>
 					<li role="presentation" class="nav-option active"><a href="videos.php">Surveillance Videos</a></li>
 				</ul>
 			</div>

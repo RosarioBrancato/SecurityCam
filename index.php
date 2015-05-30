@@ -48,7 +48,22 @@
 				<div id="div-streams" class="row">
 					<div id="div-stream-form" class="col-lg-4">
 						<h3>Start additional stream</h3>
-						<p>IP adress* <input id="txt-stream-ip" class="form-control" type="text" maxlength="15" /></p>
+						
+						<p>
+							<div class="dropdown">
+								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+									<span> Choose a stream... </span>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+									<li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Some guy's stream - 123.123.123.123:12345 </a></li>
+								</ul>
+							</div>
+						</p>
+					
+						<h4>or input one</h4>
+						
+						<p>IP adress* <input id="txt-stream-ip" class="form-control" type="text" /></p><!--maxlength="15"-->
 						<p>Port* <input id="txt-stream-port" class="form-control" type="text" value="8554" maxlength="5" /></p>
 						<p>Name <input id="txt-stream-name" class="form-control" type="text" maxlength="30" /><p>
 						<button id="btn-stream-start" class="btn btn-info">Start!</button>
@@ -70,21 +85,10 @@
 	<script src="js/stream-additional.js"></script>
 	<script>
 		$(document).ready(function() {
-			//Insert vlc player
-			var width = getStreamMainWidth();
-			var height = getStreamMainHeight();
-			loadStreamMainPlugin(TARGET, width, height);
-			
-			//Reload vlc player if window has been resized
-			$(window).resize(function() {
-				clearTimeout($.data(this, 'resizeTimer'));
-				$.data(this, 'resizeTimer', setTimeout(function() {
-					var width = getStreamMainWidth();
-					var height = getStreamMainHeight();
-					loadStreamMainPlugin(TARGET, width, height);
-				}, 200));
-			});
+			//Main panel
+			loadControlPanel();
 		
+			//Add additional stream panel
 			$('#btn-stream-start').click(function() {
 				var width = getStreamAdditionalWidth();
 				var height = getStreamAdditionalHeight();
