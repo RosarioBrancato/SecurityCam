@@ -3,7 +3,7 @@ function loadControlPanel() {
 	$(window).unbind('resize');
 	
 	var code = '';
-	code += '<div class="well well-lg green">';
+	code += '<div class="well well-lg bg-transparent">';
 	code += '	<h3>Stream and Motion Sensor are turned off.</h3>';
 	code += '	<p>';
 	code += '		<span><button id="stream-start" class="btn btn-warning">Start Streaming</button></span>';
@@ -29,7 +29,7 @@ function loadMotionPanel() {
 	$(window).unbind('resize');
 	
 	var code = '';
-	code += '<div class="well well-lg green">';
+	code += '<div class="well well-lg bg-transparent">';
 	code += '	<h3>Motion sensor is turned on.</h3>';
 	code += '	<p><button id="stream-end" class="btn btn-danger">Turn Motion Sensor Off</button></p>';
 	code += '</div>';	

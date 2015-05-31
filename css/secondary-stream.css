@@ -1,10 +1,33 @@
 .icon {
-	width:50px;
+	width:25px;
 	height: auto;
 }
 
-.stream-additional-close:hover {
+.icon:hover {
 	filter: alpha(opacity=80);
     opacity: .8;
 	cursor: pointer;
+}
+
+.dropdown-menu {
+    min-width: 460px !important;
+}
+
+.stream-menu-item {
+	color: black;
+	min-width: 420px !important;
+}
+
+.stream-menu-item:hover {
+	filter: alpha(opacity=80);
+    opacity: .5;
+	cursor: pointer;
+}
+
+.no-border {
+	border: none;
+}
+
+.border-white {
+	border: 1px solid white;
 }
