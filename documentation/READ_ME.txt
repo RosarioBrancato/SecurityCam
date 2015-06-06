@@ -5,3 +5,9 @@ index.html:
 
 videos.php:
 	- Summer Jam might not be an appropriate video example
+
+stream.php
+	- remove echos from shell_exec
+	
+shell scripts:
+	- watcher.sh set path of mysql-video-add.sh

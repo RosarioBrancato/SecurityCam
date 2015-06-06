@@ -4,5 +4,5 @@ while true; do
     filename=`echo $path | cut -d ' ' -f 3`
     echo $filename
     
-    sh ./mysql-video-add.txt $filename
+    sh ./mysql-video-add.sh $filename
 done

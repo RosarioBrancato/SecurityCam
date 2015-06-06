@@ -18,10 +18,13 @@ function loadControlPanel() {
 		var width = getStreamMainWidth();
 		var height = getStreamMainHeight();
 		loadStreamMainPlugin(TARGET, width, height);
+		
+		$.post('stream.php', { stream_start: 'stream_start' });
 	});
 	
 	$('#motion-start').click(function() {
 		loadMotionPanel();
+		$.post('stream.php', { motion_start: 'motion_start' });
 	});
 }
 
@@ -31,13 +34,14 @@ function loadMotionPanel() {
 	var code = '';
 	code += '<div class="well well-lg bg-transparent">';
 	code += '	<h3>Motion sensor is turned on.</h3>';
-	code += '	<p><button id="stream-end" class="btn btn-danger">Turn Motion Sensor Off</button></p>';
+	code += '	<p><button id="motion-end" class="btn btn-danger">Turn Motion Sensor Off</button></p>';
 	code += '</div>';	
 	
 	$('#div-stream-main').html(code);
 	
-	$('#stream-end').click(function() {
+	$('#motion-end').click(function() {
 		loadControlPanel();
+		$.post('stream.php', { motion_end: 'motion_end' });
 	});
 }
 
@@ -60,6 +64,7 @@ function loadStreamMainPlugin(target, width, height) {
 		
 	$('#stream-end').click(function() {
 		loadControlPanel();
+		$.post('stream.php', { stream_end: 'stream_end' });
 	});
 			
 	//Reload vlc player if window has been resized

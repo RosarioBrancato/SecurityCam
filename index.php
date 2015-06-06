@@ -59,22 +59,26 @@
 								</button>
 								<ul id="dd-list" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 									<!-- TO-DO: PHP generate dd items -->
+<?php
+								include_once('bo/Stream.php');
+								include_once('db/StreamDAO.php');
+								
+								$dao = new StreamDAO();
+								$streams = $dao->getStreams();
+							
+								foreach($streams as $stream) {
+?>
 									<li role="presentation">
 										<div class="form-inline">
 											<button class="form-control no-border stream-menu-item text-left" role="menuitem" tabindex="-1" href="#">
-												<span class="dd-name">123456789012345678901234567890</span> - <span class="dd-ip">123.123.123.123</span>:<span class="dd-port">12345</span>
+												<span class="dd-name"><?php echo $stream->getName(); ?></span><?php if(strlen($stream->getName()) > 0) { echo ' - '; } ?><span class="dd-ip"><?php echo $stream->getIp(); ?></span>:<span class="dd-port"><?php echo $stream->getPort(); ?></span>
 											</button>
 											<img class="icon" src="images/CloseIcon.png" />
 										</div>
 									</li>
-									<li role="presentation">
-										<div class="form-inline">
-											<button class="form-control no-border stream-menu-item text-left" role="menuitem" tabindex="-1" href="#">
-												<span class="dd-name">My Video</span> - <span class="dd-ip">https://www.youtube.com/watch?v=QcIy9NiNbmo</span>:<span class="dd-port">0</span>
-											</button>
-											<img class="icon" src="images/CloseIcon.png" />
-										</div>
-									</li>
+<?php
+								}								
+?>	
 								</ul>
 							</div>
 						
@@ -85,7 +89,7 @@
 								<div class="col-sm-4">Port*</div>
 							</div>
 							<div class="row">
-								<div class="col-sm-8"><input id="txt-stream-ip" class="form-control" type="text" /></p><!--maxlength="15"--></div>
+								<div class="col-sm-8"><input id="txt-stream-ip" class="form-control" type="text" maxlength="15" /></p><!--  --></div>
 								<div class="col-sm-4"><input id="txt-stream-port" class="form-control" type="text" value="8554" maxlength="5" /></div>
 							</div>
 							<p>Name <input id="txt-stream-name" class="form-control" type="text" maxlength="30" /></p>
@@ -111,31 +115,7 @@
 		$(document).ready(function() {
 			//Main panel
 			loadControlPanel();
-		
-			$('#dd-list li button').click(function() {
-				var width = getStreamAdditionalWidth();
-				var height = getStreamAdditionalHeight();
-				
-				var name = $(this).find('.dd-name').text();
-				var id = $('#next_id').val();
-				$('#next_id').val(parseInt(id) + 1);
-				
-				var ip = $(this).find('.dd-ip').text();
-				var port = $(this).find('.dd-port').text();
-				
-				var target = 'http://' + ip;
-				if(port.length > 0)  {
-					target += ':' + port;
-				}
-				
-				addStreamAdditional(id, name, target, width, height);
-			});
-			
-			$('#dd-list li img').click(function() {
-				alert('delete dd-item');
-				//TO-DO
-			});
-			
+			addDropDownClickEvents();
 		
 			$('#txt-stream-ip, #txt-stream-port, #txt-stream-name').keyup(function(e) {
 				//check if enter-key was released
@@ -153,16 +133,16 @@
 				var id = $('#next_id').val();
 				$('#next_id').val(parseInt(id) + 1);
 				
-				/*var ip = $('#txt-stream-ip').val();
+				var ip = $('#txt-stream-ip').val();
 				var port = $('#txt-stream-port').val();
 				
 				var target = 'http://' + ip;
 				if(port.length > 0)  {
 					target += ':' + port;
-				}*/
+				}
 				
 				//Testing
-				var target = $('#txt-stream-ip').val();
+				//var target = $('#txt-stream-ip').val();
 				
 				addStreamAdditional(id, name, target, width, height);
 				
@@ -172,10 +152,26 @@
 				$('#txt-stream-name').val('');
 				
 				//save entry
-				//TO-DO
+				$.post('stream.php', { stream_add: 'stream_add', ip: ip, port: port, name: name }, function () {
+					//add entry to dropdown
+					var html = '';
+					html += '<li role="presentation">';
+					html += '	<div class="form-inline">';
+					html += '		<button class="form-control no-border stream-menu-item text-left" role="menuitem" tabindex="-1" href="#">';
+					if(name.length > 0) {
+						html += '			<span class="dd-name">' + name + '</span> - <span class="dd-ip">' + ip + '</span>:<span class="dd-port">' + port + '</span>';
+					} else {
+						html += '			<span class="dd-name"></span><span class="dd-ip">' + ip + '</span>:<span class="dd-port">' + port + '</span>';
+					}
+					html += '		</button>'
+					html += '		<img class="icon" src="images/CloseIcon.png" />';
+					html += '	</div>';
+					html += '</li>';
+					$('#dd-list').append(html);
+					addDropDownClickEvents();
+				});
 			});
-		
+			
 		});
 	</script>
-
 </body>

@@ -73,7 +73,7 @@ foreach($data as $video) {
 					<div class="col-lg-4">
 						<h3><?php echo $video->getDate() . ' ' . $video->getTime(); ?></h3>
 						<video controls>
-							<source src="<?php echo 'surveillance/videos/' . $video->getFilename(); ?>" type="video/mp4">
+							<source src="<?php echo 'videos/' . $video->getFilename(); ?>" type="video/mp4">
 						</video>
 					</div>
 <?php

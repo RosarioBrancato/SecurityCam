@@ -1,10 +1,10 @@
 <?php
 
-	include_once('surveillance/utils/DateTimeUtils.php');
-	include_once('surveillance/bo/Filter.php');
-	include_once('surveillance/bo/Video.php');
-	include_once('surveillance/db/VideoDAO.php');
-	include_once('surveillance/view/VideoGUI.php');
+	include_once('utils/DateTimeUtils.php');
+	include_once('bo/Filter.php');
+	include_once('bo/Video.php');
+	include_once('db/VideoDAO.php');
+	include_once('view/VideoGUI.php');
 
 	$filter = new Filter();
 	
