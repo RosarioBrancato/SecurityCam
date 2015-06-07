@@ -172,6 +172,12 @@
 				});
 			});
 			
+			$(window).unload(function() {
+				$.post('stream.php', { stream_end: 'stream_end' });
+				$.post('stream.php', { motion_end: 'motion_end' });
+			});
+			
 		});
+			
 	</script>
 </body>

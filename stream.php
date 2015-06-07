@@ -1,15 +1,19 @@
 <?php
 	
 	if(isset($_POST['stream_start'])) {
+		echo 'start stream...';
 		echo shell_exec('$(cd rb-scripts/ ; sh stream-start.sh)');
 		
 	} else if(isset($_POST['stream_end'])) {
+		echo 'end stream...';
 		echo shell_exec('$(cd rb-scripts/ ; sh stream-stop.sh)');
 		
 	} else if(isset($_POST['motion_start'])) {
+		echo 'start motion...';
 		echo shell_exec('$(cd rb-scripts/ ; sh motion-start.sh)');
 		
 	} else if(isset($_POST['motion_end'])) {
+		echo 'end motion...';
 		echo shell_exec('$(cd rb-scripts/ ; sh motion-end.sh)');
 		
 	} else if(isset($_POST['stream_add'])) {
