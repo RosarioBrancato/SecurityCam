@@ -11,3 +11,6 @@ stream.php
 	
 shell scripts:
 	- watcher.sh set path of mysql-video-add.sh
+	
+Connection.php:
+	- set mysql login data

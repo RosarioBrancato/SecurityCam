@@ -58,7 +58,6 @@
 									<span class="caret"></span>
 								</button>
 								<ul id="dd-list" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-									<!-- TO-DO: PHP generate dd items -->
 <?php
 								include_once('bo/Stream.php');
 								include_once('db/StreamDAO.php');
@@ -114,7 +113,17 @@
 	<script>
 		$(document).ready(function() {
 			//Main panel
-			loadControlPanel();
+<?php 
+		$pid_stream = shell_exec('pidof raspivid');
+		$pid_motion = shell_exec('pidof motion-mmal');
+		if($pid_stream != null && strlen($pid_stream) > 0) {
+			echo 'loadStreamMainPlugin(TARGET, getStreamMainWidth(), getStreamMainHeight());';
+		} else if($pid_motion != null && strlen($pid_motion) > 0) {
+			echo 'loadMotionPanel();';
+		} else {
+			echo 'loadControlPanel();';
+		}
+?>
 			addDropDownClickEvents();
 		
 			$('#txt-stream-ip, #txt-stream-port, #txt-stream-name').keyup(function(e) {
@@ -172,10 +181,10 @@
 				});
 			});
 			
-			$(window).unload(function() {
+			/*$(window).unload(function() {
 				$.post('stream.php', { stream_end: 'stream_end' });
 				$.post('stream.php', { motion_end: 'motion_end' });
-			});
+			});*/
 			
 		});
 			
