@@ -1,0 +1,62 @@
+[-1243184264] [NTC] [ALL] [Jun 09 16:51:13] motion_startup: Using log type (ALL) log level (WRN)
+[1] [ALR] [VID] [Jun 09 16:51:13] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:51:13] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:52:21] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165221.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:52:21] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165221.avi]: 
+[1] [ALR] [VID] [Jun 09 16:52:21] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:52:23] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:52:23] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:52:46] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165246.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:52:46] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165246.avi]: 
+[1] [ALR] [VID] [Jun 09 16:52:46] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:52:48] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:52:48] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:53:00] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165300.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:53:00] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165300.avi]: 
+[1] [ALR] [VID] [Jun 09 16:53:00] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:53:02] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:53:02] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:53:10] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165309.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:53:10] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165309.avi]: 
+[1] [ALR] [VID] [Jun 09 16:53:10] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:53:11] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:53:11] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:53:20] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165320.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:53:20] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165320.avi]: 
+[1] [ALR] [VID] [Jun 09 16:53:20] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:53:22] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:53:22] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:54:29] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165429.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:54:29] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165429.avi]: 
+[1] [ALR] [VID] [Jun 09 16:54:29] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:54:31] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:54:31] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:54:41] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165440.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:54:41] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165440.avi]: 
+[1] [ALR] [VID] [Jun 09 16:54:41] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:54:42] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:54:42] mmalcam_start: MMAL Camera using video capture
+[1] [ERR] [ENC] [Jun 09 16:55:07] ffmpeg_open: url_fopen - error opening file /var/www/videos//01-20150609165506.avi ... check access rights to target directory: 
+[1] [ERR] [EVT] [Jun 09 16:55:07] event_ffmpeg_newfile: ffopen_open error creating (new) file [/var/www/videos//01-20150609165506.avi]: 
+[1] [ALR] [VID] [Jun 09 16:55:07] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 16:55:08] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 16:55:08] mmalcam_start: MMAL Camera using video capture
+[1] [ALR] [VID] [Jun 09 16:56:32] MMAL Camera cleanup
+[-1243249800] [NTC] [ALL] [Jun 09 17:23:54] motion_startup: Using log type (ALL) log level (WRN)
+[1] [ALR] [VID] [Jun 09 17:23:54] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 17:23:54] mmalcam_start: MMAL Camera using video capture
+[-1242369160] [NTC] [ALL] [Jun 09 17:26:53] motion_startup: Using log type (ALL) log level (WRN)
+[1] [ALR] [VID] [Jun 09 17:26:53] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 17:26:53] mmalcam_start: MMAL Camera using video capture
+[0] [ERR] [STR] [Jun 09 17:26:53] httpd_run: motion-httpd failed bind() interface 127.0.0.1 / port 8080, retrying: 
+[0] [ERR] [STR] [Jun 09 17:26:53] httpd_run: motion-httpd socket failed interface 127.0.0.1 / port 8080, retrying: 
+[0] [ERR] [STR] [Jun 09 17:26:53] httpd_run: motion-httpd failed bind() interface 127.0.0.1 / port 8080, retrying: 
+[1] [ERR] [VID] [Jun 09 17:26:53] camera component couldn't be enabled
+[0] [ERR] [STR] [Jun 09 17:26:53] httpd_run: motion-httpd socket failed interface 127.0.0.1 / port 8080, retrying: 
+[0] [CRT] [STR] [Jun 09 17:26:53] httpd_run: motion-httpd ERROR bind() [interface 127.0.0.1 port 8080]: 
+[1] [ALR] [VID] [Jun 09 17:26:53] MMAL Camera cleanup
+[1] [ALR] [VID] [Jun 09 17:27:20] MMAL Camera cleanup
+[-1242782856] [NTC] [ALL] [Jun 09 17:35:03] motion_startup: Using log type (ALL) log level (WRN)
+[1] [ALR] [VID] [Jun 09 17:35:03] mmalcam_start: MMAL Camera thread starting... for camera (vc.ril.camera) of 640 x 480 at 2 fps
+[1] [ALR] [VID] [Jun 09 17:35:03] mmalcam_start: MMAL Camera using video capture
+[1] [ALR] [VID] [Jun 09 17:39:55] MMAL Camera cleanup

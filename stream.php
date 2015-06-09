@@ -1,20 +1,30 @@
 <?php
 	
 	if(isset($_POST['stream_start'])) {
-		echo 'start stream...';
-		echo shell_exec('$(cd rb-scripts/ ; sh stream-start.sh)');
-		
+		echo 'start stream... ';
+		shell_exec("nohup raspivid -o - -t 0 -w 800 -h 600 -fps 30 |cvlc -v stream:///dev/stdin --sout '#standard{access=http,mux=ts,dst=:8554}' :demux=h264 > /dev/null 2>&1 &");
+		echo ' done!';		
+
 	} else if(isset($_POST['stream_end'])) {
 		echo 'end stream...';
-		echo shell_exec('$(cd rb-scripts/ ; sh stream-stop.sh)');
+		$pid_stream = shell_exec("pidof raspivid");
+		if(strlen($pid_stream) > 0) {
+			shell_exec("pkill raspivid");
+		}
+		echo ' done!';
 		
 	} else if(isset($_POST['motion_start'])) {
 		echo 'start motion...';
-		echo shell_exec('$(cd rb-scripts/ ; sh motion-start.sh)');
+		shell_exec("nohup mmal/motion-mmal -n -c mmal/motion-mmalcam.conf 1>/dev/null 2>&1 </dev/null &");		
+		echo ' done!';
 		
 	} else if(isset($_POST['motion_end'])) {
 		echo 'end motion...';
-		echo shell_exec('$(cd rb-scripts/ ; sh motion-end.sh)');
+		$pid_motion = shell_exec("pidof motion-mmal");
+		if(strlen($pid_motion) > 0) {
+			shell_exec("ps -ef | grep motion-mmal | awk '{print $2}' | xargs kill");
+		}
+		echo ' done!';
 		
 	} else if(isset($_POST['stream_add'])) {
 		if(isset($_POST['ip']) && strlen($_POST['ip']) && isset($_POST['port']) && strlen($_POST['port'])) {

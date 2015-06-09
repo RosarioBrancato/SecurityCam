@@ -13,13 +13,15 @@ function loadControlPanel() {
 	
 	$('#div-stream-main').html(code);
 			
-	$('#stream-start').click(function() {
-		//Insert vlc player
-		var width = getStreamMainWidth();
-		var height = getStreamMainHeight();
-		loadStreamMainPlugin(TARGET, width, height);
-		
-		$.post('stream.php', { stream_start: 'stream_start' });
+	$('#stream-start').click(function() {		
+		$.post('stream.php', { stream_start: 'stream_start' }, function() {
+			setTimeout(function() {
+				//Insert vlc player
+				var width = getStreamMainWidth();
+				var height = getStreamMainHeight();
+				loadStreamMainPlugin(TARGET, width, height);
+     		}, 5000);
+		});
 	});
 	
 	$('#motion-start').click(function() {
