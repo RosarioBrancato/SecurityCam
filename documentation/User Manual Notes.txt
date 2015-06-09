@@ -1,0 +1,1 @@
+- give user "www-data" full permission of the "/var/www/"-dir content
