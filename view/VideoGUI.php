@@ -69,14 +69,14 @@
 				<div class="row">
 <?php
 foreach($data as $video) {
+	if(file_exists('videos/' . $video->getFilename())) {
 ?>
-					<div class="col-lg-4">
+					<div class="col-lg-3 col-md-4 col-sm-6">
 						<h3><?php echo $video->getDate() . ' ' . $video->getTime(); ?></h3>
-						<video controls>
-							<source src="<?php echo 'videos/' . $video->getFilename(); ?>" type="video/mp4">
-						</video>
+						<embed src="<?php echo 'videos/' . $video->getFilename(); ?>"  autostart="false" />
 					</div>
 <?php
+	}
 }
 ?>				
 				</div>
