@@ -107,7 +107,8 @@
 		
 	</div>
 	 
-	<script src="js/constants.js"></script>
+	<script src="plugin/jquery.cookie.js"></script>
+	<script src="js/cookie_utils.js"></script>
 	<script src="js/stream-main.js"></script>
 	<script src="js/stream-additional.js"></script>
 	<script>
@@ -126,6 +127,13 @@
 ?>
 			addDropDownClickEvents();
 		
+			$('#txt-stream-main-ip, #txt-stream-main-port').keyup(function(e) {
+				//check if enter-key was released
+				if(e.keyCode == '13') {
+					$('#stream-start').trigger('click');
+				}
+			});
+			
 			$('#txt-stream-ip, #txt-stream-port, #txt-stream-name').keyup(function(e) {
 				//check if enter-key was released
 				if(e.keyCode == '13') {
@@ -153,32 +161,34 @@
 				//Testing
 				//var target = $('#txt-stream-ip').val();
 				
-				addStreamAdditional(id, name, target, width, height);
-				
-				//clear fields
-				$('#txt-stream-ip').val('');
-				$('#txt-stream-port').val('8554');
-				$('#txt-stream-name').val('');
-				
-				//save entry
-				$.post('stream.php', { stream_add: 'stream_add', ip: ip, port: port, name: name }, function () {
-					//add entry to dropdown
-					var html = '';
-					html += '<li role="presentation">';
-					html += '	<div class="form-inline">';
-					html += '		<button class="form-control no-border stream-menu-item text-left" role="menuitem" tabindex="-1" href="#">';
-					if(name.length > 0) {
-						html += '			<span class="dd-name">' + name + '</span> - <span class="dd-ip">' + ip + '</span>:<span class="dd-port">' + port + '</span>';
-					} else {
-						html += '			<span class="dd-name"></span><span class="dd-ip">' + ip + '</span>:<span class="dd-port">' + port + '</span>';
-					}
-					html += '		</button>'
-					html += '		<img class="icon" src="images/CloseIcon.png" />';
-					html += '	</div>';
-					html += '</li>';
-					$('#dd-list').append(html);
-					addDropDownClickEvents();
-				});
+				if(ip.length > 0 && port.length > 0) {
+					addStreamAdditional(id, name, target, width, height);
+					
+					//clear fields
+					$('#txt-stream-ip').val('');
+					$('#txt-stream-port').val('8554');
+					$('#txt-stream-name').val('');
+					
+					//save entry
+					$.post('stream.php', { stream_add: 'stream_add', ip: ip, port: port, name: name }, function () {
+						//add entry to dropdown
+						var html = '';
+						html += '<li role="presentation">';
+						html += '	<div class="form-inline">';
+						html += '		<button class="form-control no-border stream-menu-item text-left" role="menuitem" tabindex="-1" href="#">';
+						if(name.length > 0) {
+							html += '			<span class="dd-name">' + name + '</span> - <span class="dd-ip">' + ip + '</span>:<span class="dd-port">' + port + '</span>';
+						} else {
+							html += '			<span class="dd-name"></span><span class="dd-ip">' + ip + '</span>:<span class="dd-port">' + port + '</span>';
+						}
+						html += '		</button>'
+						html += '		<img class="icon" src="images/CloseIcon.png" />';
+						html += '	</div>';
+						html += '</li>';
+						$('#dd-list').append(html);
+						addDropDownClickEvents();
+					});
+				}
 			});
 			
 		});

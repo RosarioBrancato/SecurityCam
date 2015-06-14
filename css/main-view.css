@@ -9,3 +9,11 @@
 .bg-transparent {
 	background: transparent;
 }
+
+#txt-stream-main-ip {
+	max-width: 250px;
+}
+
+#txt-stream-main-port {
+	max-width: 125px;
+}

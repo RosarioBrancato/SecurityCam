@@ -1,2 +1,3 @@
 - give user "www-data" full permission of the "/var/www/"-dir content
 - write entry in "/etc/rc.local"
+- firefox only
