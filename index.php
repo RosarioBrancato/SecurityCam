@@ -48,7 +48,7 @@
 				</div>
 				<!-- ADDITIONAL STREAMS -->
 				<div id="div-streams" class="row">
-					<div id="div-stream-form" class="col-lg-4">
+					<div id="div-stream-form" class="col-sm-8 col-md-6 col-lg-4">
 						<div class="well well-lg bg-transparent">
 							<h3>Start additional stream</h3>
 							

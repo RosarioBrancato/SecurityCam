@@ -1,7 +1,7 @@
 //ADDITIONAL STREAM
 function addStreamAdditional(id, name, target, width, height) {
 	var code = 	'';
-	code += '<div class="col-lg-4">';
+	code += '<div class="col-sm-8 col-md-6 col-lg-4">';
 	if(name.length > 0) {
 		code +=	'	<h3><img id="close' + id + '" class="icon" src="images/CloseIcon.png" /> ' + name + '</h3>';
 	} else {

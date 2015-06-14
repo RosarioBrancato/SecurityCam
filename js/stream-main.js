@@ -13,14 +13,20 @@ function loadControlPanel() {
 	
 	$('#div-stream-main').html(code);
 			
-	$('#stream-start').click(function() {		
+	$('#stream-start').click(function() {
+		var html = '';
+		html += '<div class="well well-lg bg-transparent">';
+		html += '	<h3>Stream is starting up...</h3>';
+		html += '</div>';		
+		$('#div-stream-main').html(html);
+
 		$.post('stream.php', { stream_start: 'stream_start' }, function() {
 			setTimeout(function() {
 				//Insert vlc player
 				var width = getStreamMainWidth();
 				var height = getStreamMainHeight();
 				loadStreamMainPlugin(TARGET, width, height);
-     		}, 5000);
+			}, 5000);
 		});
 	});
 	
