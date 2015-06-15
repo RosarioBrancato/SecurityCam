@@ -1,5 +1,10 @@
 //MAIN STREAM
-function loadControlPanel() {
+function loadControlPanel(target = '') {
+	//Remove windows bad ip
+	if(target == '::1') {
+		target = '';
+	}
+	
 	$(window).unbind('resize');
 	
 	//get object with all cookie values
@@ -12,7 +17,7 @@ function loadControlPanel() {
 		code += '	<p>IP Adress* <input id="txt-stream-main-ip" class="form-control" type="text" value="' + cookie.stream_main_ip + '" /></p>';
 		code += '	<p>Port* <input id="txt-stream-main-port" class="form-control" type="text" value="' + cookie.stream_main_port + '" /></p>';
 	} else {
-		code += '	<p>IP Adress* <input id="txt-stream-main-ip" class="form-control" type="text" value="" /></p>';
+		code += '	<p>IP Adress* <input id="txt-stream-main-ip" class="form-control" type="text" value="' + target + '" /></p>';
 		code += '	<p>Port* <input id="txt-stream-main-port" class="form-control" type="text" value="8554" /></p>';
 	}
 	code += '	<p>';
@@ -45,11 +50,13 @@ function loadControlPanel() {
 					loadStreamMainPlugin(target, width, height);
 				}, 5000);
 			});
+		} else {
+			alert('Geben Sie eine IP-Adresse und ein Port ein.');
 		}
 	});
 	
 	$('#motion-start').click(function() {
-		saveCookies();
+		//saveCookies();
 		loadMotionPanel();
 		$.post('stream.php', { motion_start: 'motion_start' });
 	});

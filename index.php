@@ -117,12 +117,16 @@
 <?php 
 		$pid_stream = shell_exec('pidof raspivid');
 		$pid_motion = shell_exec('pidof motion-mmal');
+		
+		$target = 'http://' . $_SERVER['SERVER_ADDR'] . ':8554';
+		
 		if($pid_stream != null && strlen($pid_stream) > 0) {
-			echo 'loadStreamMainPlugin(TARGET, getStreamMainWidth(), getStreamMainHeight());';
+			echo 'loadStreamMainPlugin("' .$target . '", getStreamMainWidth(), getStreamMainHeight());';
 		} else if($pid_motion != null && strlen($pid_motion) > 0) {
 			echo 'loadMotionPanel();';
 		} else {
-			echo 'loadControlPanel();';
+			echo 'loadControlPanel("' . $_SERVER['SERVER_ADDR'] . '");';
+			//echo 'loadStreamMainPlugin("' .$target . '", getStreamMainWidth(), getStreamMainHeight());';
 		}
 ?>
 			addDropDownClickEvents();
@@ -188,6 +192,8 @@
 						$('#dd-list').append(html);
 						addDropDownClickEvents();
 					});
+				} else {
+					alert('Geben Sie eine IP-Adresse und ein Port ein.');
 				}
 			});
 			
