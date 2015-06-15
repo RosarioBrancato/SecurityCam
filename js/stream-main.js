@@ -13,7 +13,7 @@ function loadControlPanel(target = '') {
 	var code = '';
 	code += '<div class="well well-lg bg-transparent">';
 	code += '	<h3>Stream and Motion Sensor are turned off.</h3>';
-	if(isCookieObjValid(cookie)) {
+	if(isCookieObjValid(cookie) && target.length <= 0) {
 		code += '	<p>IP Adress* <input id="txt-stream-main-ip" class="form-control" type="text" value="' + cookie.stream_main_ip + '" /></p>';
 		code += '	<p>Port* <input id="txt-stream-main-port" class="form-control" type="text" value="' + cookie.stream_main_port + '" /></p>';
 	} else {
