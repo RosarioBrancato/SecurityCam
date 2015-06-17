@@ -9,13 +9,22 @@
 	cursor: pointer;
 }
 
-.dropdown-menu {
+/*.dropdown-menu {
     min-width: 460px !important;
 }
 
 .stream-menu-item {
 	color: black;
 	min-width: 420px !important;
+}*/
+
+.dropdown-menu {
+	min-width: 340px !important;
+}
+
+.stream-menu-item {
+	color: black;
+	min-width: 300px !important;
 }
 
 .stream-menu-item:hover {
